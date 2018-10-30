@@ -2,29 +2,55 @@
 <html>
 <head>
 	<title>CINEMA APP</title>
+	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="cinema.css">
 </head>
 	<script type="text/javascript">
-		
+		function seatOpener(){
+			document.getElementById('seat_creator').style.display="block";
+		}
+		function seatCreator(){
+			var tcontent="";
+			tcontent="<table border='3' width='100%'>";
+				var i = parseInt(no_of_seats.value);
+				n=1;
+				while(n<=i){
+					if(n%10>0){
+						tcontent+="<td>" + n + "</td>";
+						n++;
+					}
+					if(n%10<0){
+						tcontent+="<tr><td>" + n + "</td></tr>";
+						n++;
+					}
+					if(n%10==0){
+						tcontent+="<td>" + n + "</td><tr>";
+						n++;
+					}
+					
+				}
+			tcontent+="</table>"
+			seats.innerHTML=tcontent;
+		}
 	</script>
 <body>
 	<div id="body">
 		<div id="header"><div id="vline"></div>FAVOUR RIVERSIDE CINEMA<div id="vline"></div></div>
 		<div id="function_container">
 			<div class="function">
-				<div class="allocate" align="center" onclick="seatCreator()">CREATE SEATS<span id="click">&#8631;</span></div>
+				<div class="allocate" align="center" onclick="seatOpener()">CREATE SEATS<span id="click">&#8631;</span></div>
 				<div class="allocate_content" id="seat_creator">
-					<p id="label">Number of Seats</p>
-					<input type="text" class="input">
-					<div class="allocate" align="center" style="width: 40%; margin-left: 100px;">Create</div>
+					<p class="label">Number of Seats</p>
+					<input type="text" class="input" id="no_of_seats">
+					<div class="allocate" align="center" style="width: 40%; margin-left: 100px;" onclick="seatCreator()">Create</div>
 				</div>
 			</div>
 			<div class="function">
 				<div class="allocate" align="center" onclick="seatAllocator()"><small>ALLOCATE SEATS</small><span id="click">&#8631;</span></div>
 				<div class="allocate_content">
-					<p id="label">Seat Number</p>
+					<p class="label">Seat Number</p>
 					<input type="text" class="input">
-					<p id="label">Name</p>
+					<p class="label">Name</p>
 					<input type="text" class="input">
 					<div class="allocate" align="center" style="width: 40%; margin-left: 100px;">Allocate</div>
 				</div>
@@ -33,7 +59,7 @@
 				<div class="allocate" align="center">PRINT TICKETS<span id="click">&#8631;</span></div>
 				<div class="allocate_content">
 					<div class="allocate" align="center"><small>Print Current Ticket</small></div>
-					<p id="label">Ticket Number</p>
+					<p class="label">Ticket Number</p>
 					<input type="text" class="input">
 					<div class="allocate" align="center" style="width: 40%; margin-left: 100px;">Print</div>
 					<hr>
@@ -42,10 +68,7 @@
 			</div>
 		</div>
 		<div id="seats">
-			<table border="3" width="100%">
-				<!-- <tr><td>nnn</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr> -->
-				
-			</table>
+			
 		</div>
 	</div>
 </body>
