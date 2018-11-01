@@ -7,7 +7,7 @@
 </head>
 		<script type="text/javascript">
 		var seat = [];
-		i;
+		
 		function seatOpener(){
 			document.getElementById('seat_allocator').style.display="none";
 			document.getElementById('seat_creator').style.display="block";
@@ -26,9 +26,66 @@
 				
 					}
 			}
+
 			seatee.innerHTML=seat;
+
 		}
-		
+		function allocatorOpener(){
+			document.getElementById('seat_allocator').style.display="block";
+			document.getElementById('seat_creator').style.display="none";
+			document.getElementById('printer').style.display="none";
+		}
+		function printOpener(){
+			document.getElementById('seat_allocator').style.display="none";
+			document.getElementById('seat_creator').style.display="none";
+			document.getElementById('printer').style.display="block";
+		}
+		// var btn = document.getElementById(q+n).innerHTML;
+		function seatAllocator(){
+			i++;
+			s = sn.value;
+			na = nam.value;
+			if(sn.value<=i){
+				if(seat[sn.value]=="<td>" + sn.value + "</td>"){
+				seat[sn.value]="<td onclick='print()'>" + na.toUpperCase() + "</td>";
+				seatee.innerHTML=seat;
+				}else{
+					alert("Seat already occupied, Please select another seat")
+				}
+			}
+			if(sn.value>i){
+				alert("Seat not available -- Please select between " + 1 + " & " + no_of_seats.value)
+			}
+		}
+		function print(){
+			ticket.style.display="block";
+			vname.innerHTML=na.toUpperCase();
+			seatno.innerHTML=sn.value;
+			tickno.innerHTML=Math.floor(Math.random()*101)+1;
+			window.print(ticket.innerHTML);
+		}
+		function printcurr(){
+			ticket.style.display="block";
+			vname.innerHTML=na.toUpperCase();
+			seatno.innerHTML=sn.value;
+			tickno.innerHTML=Math.floor(Math.random()*101)+1;
+			window.print(ticket.innerHTML);
+		}
+		function ret(){
+			ticket.style.display="none";
+		}
+		function retall(){
+			all.style.display="none";
+		}
+		function printall(){
+		all.style.display="block";
+		all.innerHTML+=seats.innerHTML;
+		}
+		// function printbysn(){
+		// 	if(seat==seateeno.value){
+		// 		ticket.style.display="block";	
+		// 	}
+		// }
 	</script>
 <body>
 	<div id="body">
@@ -55,12 +112,12 @@
 			<div class="function" style="border-right: 0">
 				<div class="allocate" align="center" onmouseover="printOpener()">PRINT TICKETS<span id="click">&#8631;</span></div>
 				<div class="allocate_content" id="printer">
-					<div class="allocate" align="center"><small>Print Current Ticket</small></div>
-					<p class="label">Ticket Number</p>
-					<input type="text" class="input">
-					<div class="allocate" align="center" style="width: 40%; margin-left: 100px;">Print</div>
+					<div class="allocate" align="center" style="margin-top: 50px" onclick="printcurr()"><small>Print Current Ticket</small></div>
+					<p class="label">Seat Number</p>
+					<input type="text" class="input" id="seateeno">
+					<div class="allocate" align="center" style="width: 40%; margin-left: 100px;" onclick="printbysn()">Print</div>
 					<hr>
-					<div class="allocate" align="center" style="margin-top: 50px"><small>PRINT ALL TICKETS</small></div>
+					<div class="allocate" align="center" style="margin-top: 50px" onclick="printall()"><small>PRINT ALL SEATS</small></div>
 				</div>
 			</div>
 		</div>
@@ -70,8 +127,16 @@
 			</table>
 		</div>
 	</div>
-	
-
+	<div id="ticket">
+		<h1 style="background: black; color: white">FAVOUR RIVERSIDE CINEMA</h1>
+		<p id="vname" style="margin-top: 20px"></p>
+		<p style="margin-top: 20px">Your Ticket Number is:</p>
+		<p id="tickno" style="margin-top: 20px"></p>
+		<p style="margin-top: 20px">Your Seat Number is:</p>
+		<p id="seatno" style="margin-top: 20px"></p>
+		<button onclick="ret()" style="background: black; color: white; border-style: none; font-size: 13pt; border-radius: 5px; padding: 10px; cursor: pointer;">RETURN</button>
+	</div>
+	<div id="all"><button onclick="retall()" style="background: black; color: white; border-style: none; font-size: 13pt; border-radius: 5px; padding: 10px; cursor: pointer; margin-bottom: 50px">RETURN</button></div>
 
 </body>
 </html>

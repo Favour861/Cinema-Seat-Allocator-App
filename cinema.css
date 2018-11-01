@@ -115,3 +115,28 @@ td{
 	text-shadow: 2px 2px 1px #B20000;
 	text-align: center;
 }
+#ticket{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: white;
+	text-align: center;
+	font-size: 15pt;
+	color: black;
+	display: none;
+}
+#all{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: white;
+	text-align: center;
+	font-size: 15pt;
+	color: black;
+	display: none;
+
+}
