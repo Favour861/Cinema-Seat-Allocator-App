@@ -11,7 +11,7 @@ body{
 	background: #8B4513;
 }
 #header{
-	background: #B20000;
+	background: rgba(80,00,00,10);
 	color: white;
 	width: 100%;
 	padding-top: 10px;
@@ -33,7 +33,7 @@ body{
 	margin-right: 70px;
 	margin-left: 70px;
 	animation-name: line;
-	animation-duration: 2s;
+	animation-duration: 1.5s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 }
@@ -72,7 +72,7 @@ body{
 	cursor: pointer;
 }
 .allocate_content{
-	background: #B20000;
+	background: rgba(80,00,00,10);
 	padding-top: 10px;
 	padding-bottom: 10px;
 	height: 90%;
@@ -92,6 +92,7 @@ body{
 	background-color: lightgrey;
 	font-size: 150%;
 	color: #08122C;
+	text-align: center;
 }
 #seats{
 	clear: left;
@@ -110,7 +111,7 @@ td{
 	background-size: 98%;
 	background-repeat: no-repeat;
 	font-size: 25pt;
-	color: #B20000;
-	text-shadow: 2px 2px 1px white;
+	color: white;
+	text-shadow: 2px 2px 1px #B20000;
 	text-align: center;
 }
