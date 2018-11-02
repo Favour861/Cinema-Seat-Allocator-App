@@ -111,8 +111,8 @@ td{
 	background-size: 98%;
 	background-repeat: no-repeat;
 	font-size: 25pt;
-	color: white;
-	text-shadow: 2px 2px 1px #B20000;
+	color: #B20000;
+	text-shadow: 2px 2px 0px white;
 	text-align: center;
 }
 #ticket{
